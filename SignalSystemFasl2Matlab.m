@@ -55,34 +55,3 @@ legend("x = e^{-10t}Sin(10t)", "y(system output for x)")
 
 %% 2-4) Other option: like before we can plot the output with the folowing code:
 figure(4); lsim(system1,x,t);
-
-
-%% Tamrinat 11,12,13 Fasl2:
-
-num = 1;
-den = randi(10, [1 3]);  
-systemSoal_11 = tf(num,den)  % defining the system (Soal 11)
-
-figure(5);  
-
-subplot 311   % Impulse response (Soal 12)
-[h,t] = impulse(systemSoal_11);   
-plot(t,h,"color", [0.7, 0, 0] ,"LineWidth", 3);
-grid on
-title("Impulse response","color", [0.7, 0, 0])
-
-subplot 312   % Step response (Soal 12)
-[s,t] = step(systemSoal_11);      
-plot(t,s,"color", [0, 0.7, 0] ,"LineWidth", 3);
-grid on
-title("Step response","color", [0, 0.7, 0])
-
-subplot 313   % System's response to x=exp(-t).*sin(t) (Soal 13)
-t = 0:0.01:10;
-x = exp(-t).*sin(t);
-[y,t] = lsim(system1,x,t);      
-plot(t,y,"color", [0, 0, 0.7] ,"LineWidth", 3);
-grid on
-title('Response to "e^t Sin(t)"',"color", [0, 0, 0.7])
-
-
